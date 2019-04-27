@@ -29,7 +29,7 @@
                 gpios = <&gpio 10 0 /* sda */
                      &gpio 11 0 /* scl */
                     >;
-                i2c-gpio,delay-us = <4>;        /* ~100 kHz */
+                i2c-gpio,delay-us = <2>;        /* ~100 kHz */
                 #address-cells = <1>;
                 #size-cells = <0>;
             };
@@ -46,11 +46,10 @@
                 reg = <0x5d>;
                 interrupt-parent = <&gpio>;
                 interrupts = <27 2>;
-                touchscreen-size-x = <800>;
-                touchscreen-size-y = <480>;
-                touchscreen-x-mm = <85>;
-                touchscreen-y-mm = <51>;
-            };
+                touchscreen-inverted-y;
+                touchscreen-size-x = <480>;
+                touchscreen-size-y = <800>;
+	    };
         };
     };
     fragment@4 {
@@ -61,13 +60,6 @@
                 gpios = <&gpio 19 0>;
                 default-on;
             };
-        };
-    };
-    fragment@5 {
-        target = <&ft6236>;
-        __overlay__ {
-            touchscreen-inverted-x = <1>;
-            touchscreen-inverted-y = <1>;
         };
     };
     __symbols__ {
@@ -88,4 +80,3 @@
         rotate = <0>,"-5";
     };
 };
-
