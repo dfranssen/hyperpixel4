@@ -50,6 +50,8 @@
                 touchscreen-size-y = <480>;
                 touchscreen-x-mm = <85>;
                 touchscreen-y-mm = <51>;
+                /* add line below for flip y-axis (usbs down) */
+                touchscreen-inverted-y = <1>;
             };
         };
     };
